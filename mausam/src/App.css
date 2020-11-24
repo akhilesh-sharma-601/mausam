@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  color: #fff;
+}
+.App {
+  background: #44a08d; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #093637,
+    #44a08d
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #093637,
+    #44a08d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+  height: 100%;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+main {
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+}
+.search {
+  font-size: 20px;
+  outline: none;
+  border-radius: 0 0 16px 16px;
+  margin: 0.5rem 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #292929;
+  appearance: none;
+  border: none;
+  width: 100%;
+  padding: 15px;
+  display: block;
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.4s ease;
+  letter-spacing: 1.5px;
+}
+.search:focus {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.location {
+  font-size: 32px;
+  font-weight: 500;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+.date {
+  font-size: 20px;
+  font-weight: 300;
+  text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
+  font-style: italic;
+}
+.temp {
+  position: relative;
+  display: inline-block;
+  margin: 30px auto;
+  font-weight: 900;
+  font-size: 6rem;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 15px 25px;
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+  text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
+
+
+}
+.weather{
+    font-size: 48px;
+    font-weight: 700;
+    text-shadow: rgba(50, 50, 70, 0.5);
+}
