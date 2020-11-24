@@ -8,20 +8,22 @@ const api = {
 };
 
 function App() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
 
-  const search = evt => {
+  const search = (evt) => {
     if (evt.key === "Enter") {
-      fetch(`https://${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-        .then(res => res.json())
-        .then(result => {
+      fetch(
+        `https://${api.base}weather?q=${query}&units=metric&APPID=${api.key}`
+      )
+        .then((res) => res.json())
+        .then((result) => {
           setWeather(result);
-          setQuery('');
+          setQuery("");
           console.log(result);
         });
     }
-  }
+  };
 
   const dateBuilder = (d) => {
     let months = [
@@ -73,22 +75,41 @@ function App() {
             onKeyPress={search}
           />
         </div>
-        {(typeof weather.main != "undefined") ? (
+        {typeof weather.main != "undefined" ? (
           <div>
-        <div className="location-box">
-          <div className="location">{weather.name}, {weather.sys.country}</div>
-          <div className="date">{dateBuilder(new Date())}</div>
-        </div>
-        <div className="weather-box">
-          <div className="temp">{Math.round(weather.main.temp)}°c</div>
-          <div className="weather">{weather.weather[0].main}</div>
-        </div></div>
-        ) : ('')}
+            <div className="location-box">
+              <div className="location">
+                {weather.name}, {weather.sys.country}
+              </div>
+              <div className="date">{dateBuilder(new Date())}</div>
+            </div>
+            <div className="weather-box">
+              <div className="temp">{Math.round(weather.main.temp)}°c</div>
+              <div className="weather">{weather.weather[0].main}</div>
+              <h4 className="weather-desc">{weather.weather[0].description}</h4>
+            </div>
+            <div className="description">
+              <h4 className="max-temp">
+                max temp : {weather.main.temp_max} °c
+              </h4>
+              <h4 className="min-temp">
+                min temp : {weather.main.temp_min} °c
+              </h4>
+              <h4 className="humidity">
+                humidity : {weather.main.humidity} %
+              </h4>
+              <h4 className="wind">
+                wind : {weather.wind.speed} mph
+              </h4>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
       </main>
       <p className="author">Developed By Akhilesh Sharma</p>
-      <p className="provider">Powered By : Dark Spky </p>
+      <p className="provider">Powered By : Dark Sky </p>
     </div>
-    
   );
 }
 
