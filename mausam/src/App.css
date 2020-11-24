@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -22,6 +24,10 @@ body {
   height: 100%;
   text-align: center;
   padding: 1.5rem 0;
+}
+h2{
+  font-family: 'Goldman', cursive;
+  font-size: 30px;
 }
 main {
   min-height: 100vh;
@@ -75,4 +81,29 @@ main {
     font-size: 48px;
     font-weight: 700;
     text-shadow: rgba(50, 50, 70, 0.5);
+    letter-spacing: 2px;
+}
+.weather-desc {
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 200;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.description{
+  position: relative;
+  display: inline-block;
+  margin: 30px auto;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 15px 25px;
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+  
+
+}
+h4{
+  text-transform: capitalize;
+}
+.icon{
+  font-size: 30px;
 }

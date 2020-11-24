@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 
 import "./App.css";
+//console.log(process.env.REACT_APP_KEY);
+
 
 const api = {
-  key: "7263d85dbccfa8d66423dd26691c75d1",
+  //key: "7263d85dbccfa8d66423dd26691c75d1",
   base: "api.openweathermap.org/data/2.5/",
 };
 
@@ -11,11 +13,11 @@ function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
 
+  const key = process.env.REACT_APP_KEY;
+
   const search = (evt) => {
     if (evt.key === "Enter") {
-      fetch(
-        `https://${api.base}weather?q=${query}&units=metric&APPID=${api.key}`
-      )
+      fetch(`https://${api.base}weather?q=${query}&units=metric&APPID=${key}`)
         .then((res) => res.json())
         .then((result) => {
           setWeather(result);
@@ -79,7 +81,8 @@ function App() {
           <div>
             <div className="location-box">
               <div className="location">
-                {weather.name}, {weather.sys.country}
+                <i class="fas fa-map-marker-alt"></i> {weather.name},{" "}
+                {weather.sys.country}
               </div>
               <div className="date">{dateBuilder(new Date())}</div>
             </div>
@@ -90,25 +93,32 @@ function App() {
             </div>
             <div className="description">
               <h4 className="max-temp">
-                max temp : {weather.main.temp_max} °c
+                <i className="icon" class="fas fa-temperature-high"></i> max
+                temp : {weather.main.temp_max} °c
               </h4>
               <h4 className="min-temp">
-                min temp : {weather.main.temp_min} °c
+                <i className="icon" class="fas fa-temperature-low"></i> min temp
+                : {weather.main.temp_min} °c
               </h4>
               <h4 className="humidity">
-                humidity : {weather.main.humidity} %
+                <i className="icon" class="fas fa-tint-slash"></i> humidity :{" "}
+                {weather.main.humidity} %
               </h4>
               <h4 className="wind">
-                wind : {weather.wind.speed} mph
+                <i className="icon" class="fas fa-wind"></i> wind :{" "}
+                {weather.wind.speed} mph
               </h4>
             </div>
           </div>
         ) : (
           ""
         )}
-      </main>
-      <p className="author">Developed By Akhilesh Sharma</p>
+        <div>
+        <p className="author">Developed By Akhilesh Sharma</p>
       <p className="provider">Powered By : Dark Sky </p>
+        </div>
+      </main>
+     
     </div>
   );
 }
